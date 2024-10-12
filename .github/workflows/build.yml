@@ -1,11 +1,8 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Staging
 
 on:
-  # Triggers the workflow on push or pull request events but only for the "master" branch
-  push:
-    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 
@@ -22,3 +19,11 @@ jobs:
 
       - name: Build code
         run: echo "npm install && npm run build"
+  
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build & publish image
+        run: echo "build and upload image"
+      - name: Deploy cloud run
+        run: echo "deploy cloud run"
